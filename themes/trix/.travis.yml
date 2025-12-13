@@ -1,0 +1,36 @@
+language: minimal
+
+before_install:
+    - sudo apt-get update
+    - sudo apt-get install -y curl unzip rsync git
+
+install:
+    - curl -s -L https://github.com/getzola/zola/releases/download/v0.21.0/zola-v0.21.0-x86_64-unknown-linux-musl.tar.gz | sudo tar xvzf - -C /usr/local/bin
+
+git:
+    submodules: true
+
+stages:
+    - name: deploy
+      if: |
+          type = push AND \
+          branch = main AND \
+          (commit_message =~ /[Uu]pload/ OR commit_message =~ /[Nn]anolog:/)
+
+jobs:
+    include:
+        - stage: deploy
+          script: |
+              TIMESTAMP=$(date '+%Y-%m-%d %I:%M:%S %p')
+              zola build --output-dir publish_tmp --force
+              git config --global user.name "tr1xem"
+              git config --global user.email "admin@trix.is-a.dev"
+              cd public/
+              git checkout main
+              git pull origin main
+              cd ..
+              rsync -av --delete --exclude='.git' --exclude="CNAME" publish_tmp/ public/
+              cd public
+              git add .
+              git commit -m "Automated Deploy: $TIMESTAMP" || echo "No changes to deploy."
+              git push https://${GH_TOKEN}@github.com/tr1xem/tr1xem.github.io.git main

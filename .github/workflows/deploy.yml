@@ -1,0 +1,23 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        uses: shalzz/zola-deploy-action@v0.19.2
+        env:
+          # Target branch
+          PAGES_BRANCH: gh-pages
+          # Build in the current directory
+          BUILD_DIR: .
+          # Token to push to the repository
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

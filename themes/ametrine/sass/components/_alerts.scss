@@ -1,0 +1,152 @@
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+
+[class^="markdown-alert"] {
+	display: flow-root;
+	position: relative;
+
+	&::before {
+		margin-inline-start: 1.5rem;
+		color: var(--accent-color);
+		font-weight: var(--font-weight-semi-bold);
+	}
+
+	&::after {
+		@include icon(pseudo);
+		position: absolute;
+		margin-inline-end: 0.25rem;
+		inset-block-start: rpx(1);
+		inset-inline-start: 0.75rem;
+		color: var(--accent-color);
+		font-size: 1.25rem;
+	}
+
+	& > :first-child {
+		margin-block-start: 0.25rem;
+	}
+
+	& > :last-child {
+		margin-block-end: 0;
+	}
+}
+
+.markdown-alert-note {
+	--accent-color: var(--blue-fg);
+	--fg-muted-2: var(--blue-fg-muted-2);
+	--text-decoration-color: hsla(
+		var(--blue-h),
+		var(--blue-s),
+		var(--blue-l),
+		var(--disabled-opacity)
+	);
+
+	&::before {
+		content: var(--alert-note-text);
+	}
+
+	&::after {
+		--icon: var(--icon-info);
+	}
+}
+
+.markdown-alert-tip {
+	--accent-color: var(--green-fg);
+	--fg-muted-2: var(--green-fg-muted-2);
+	--text-decoration-color: hsla(
+		var(--green-h),
+		var(--green-s),
+		var(--green-l),
+		var(--disabled-opacity)
+	);
+
+	&::before {
+		content: var(--alert-tip-text);
+	}
+
+	&::after {
+		--icon: var(--icon-lightbulb);
+	}
+}
+
+.markdown-alert-important {
+	--accent-color: var(--purple-fg);
+	--fg-muted-2: var(--purple-fg-muted-2);
+	--text-decoration-color: hsla(
+		var(--purple-h),
+		var(--purple-s),
+		var(--purple-l),
+		var(--disabled-opacity)
+	);
+
+	&::before {
+		content: var(--alert-important-text);
+	}
+
+	&::after {
+		--icon: var(--icon-warning-diamond);
+	}
+}
+
+.markdown-alert-warning {
+	--accent-color: var(--yellow-fg);
+	--fg-muted-2: var(--yellow-fg-muted-2);
+	--text-decoration-color: hsla(
+		var(--yellow-h),
+		var(--yellow-s),
+		var(--yellow-l),
+		var(--disabled-opacity)
+	);
+
+	&::before {
+		content: var(--alert-warning-text);
+	}
+
+	&::after {
+		--icon: var(--icon-warning);
+	}
+}
+
+.markdown-alert-caution {
+	--accent-color: var(--red-fg);
+	--fg-muted-2: var(--red-fg-muted-2);
+	--text-decoration-color: hsla(
+		var(--red-h),
+		var(--red-s),
+		var(--red-l),
+		var(--disabled-opacity)
+	);
+
+	&::before {
+		content: var(--alert-caution-text);
+	}
+
+	&::after {
+		--icon: var(--icon-warning-octagon);
+	}
+}
+
+.markdown-alert-edit,
+.markdown-alert-fact {
+	--accent-color: var(--fg-muted-2);
+	--text-decoration-color: var(--fg-muted-1);
+}
+
+.markdown-alert-edit {
+	&::before {
+		content: var(--alert-edit-text);
+	}
+
+	&::after {
+		--icon: var(--icon-pencil);
+	}
+}
+
+.markdown-alert-fact {
+	&::before {
+		content: var(--alert-fact-text);
+	}
+
+	&::after {
+		--icon: var(--icon-trash);
+	}
+}
