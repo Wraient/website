@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /admin
-Disallow: /shrek
-Disallow: /swag
-Sitemap: {{ get_url(path="sitemap.xml") }}
