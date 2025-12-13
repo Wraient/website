@@ -1,0 +1,26 @@
+/* Navigation Visibility Toggle */
+
+/* Default (Desktop): Show Desktop Nav, Hide Mobile Sidebar/Header */
+.desktop-nav {
+    display: block;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+/* Mobile (<= 960px): Hide Desktop Nav, Show Mobile Sidebar/Header */
+@media (max-width: 960px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    /* Hide header theme dropdown on mobile to prevent layout issues */
+    #theme-switcher {
+        display: none;
+    }
+}

@@ -1,0 +1,157 @@
+{% import "macros/translate.html" as macros_translate %}
+{% import "macros/icon.html" as macros_icon %}
+{% import "macros/link.html" as macros_link %}
+{# Initialize variables #}
+{%- if config.extra.nav.icon %}
+{%- if config.extra.nav.icon != true %}
+{%- if config.extra.nav.icon is matching("^https?://") %}
+{%- set nav_icon = config.extra.nav.icon | safe %}
+{%- else %}
+{%- set nav_icon = get_url(path=config.extra.nav.icon) %}
+{%- endif -%}
+{%- elif config.extra.fediverse.host and config.extra.fediverse.user %}
+{%- set webfinger_url = "https://" ~ config.extra.fediverse.host ~ "/.well-known/webfinger?resource=acct:" ~
+config.extra.fediverse.user ~ "@" ~ config.extra.fediverse.host %}
+{%- set webfinger_json = load_data(url=webfinger_url, format="json", required=false) %}
+{%- for link in webfinger_json.links %}
+{%- if link.rel == "http://webfinger.net/rel/avatar" %}
+{%- set_global nav_icon = link.href %}
+{%- break %}
+{%- endif %}
+{%- endfor %}
+{%- elif config.extra.nav.icon == true and config.extra.meta.apple_touch_icon %}
+{%- if config.extra.meta.apple_touch_icon != true %}
+{%- set nav_icon = get_url(path=config.extra.meta.apple_touch_icon) %}
+{%- else %}
+{%- set nav_icon = get_url(path="apple-touch-icon.png") %}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+
+{%- if config.extra.home_url -%}
+{%- set home_url = get_url(path=config.extra.home_url, lang=lang) -%}
+{%- else -%}
+{%- set home_url = get_url(path="@/_index.md", lang=lang) -%}
+{%- endif -%}
+
+{%- if current_url | default(value="/") == home_url -%}
+{%- set home_active = true -%}
+{%- set after_active = true -%}
+{%- endif -%}
+
+{%- if not home_active -%}
+{%- set home_url = home_url ~ "#up" -%}
+{%- endif -%}
+
+{# Nav itself #}
+<div id="site-sidebar">
+    <div id="site-sidebar-header">
+        <div class="theme-switcher-mobile">
+            <button class="theme-btn theme-btn-light"
+                title="{{ macros_translate::translate(key='theme_light', default='Switch to Light Theme', language_strings=language_strings) }}">
+                <i class="icon" style="--icon: var(--icon-theme-light);"></i>
+            </button>
+            <button class="theme-btn theme-btn-dark"
+                title="{{ macros_translate::translate(key='theme_dark', default='Switch to Dark Theme', language_strings=language_strings) }}">
+                <i class="icon" style="--icon: var(--icon-theme-dark);"></i>
+            </button>
+            <button class="theme-btn theme-btn-system"
+                title="{{ macros_translate::translate(key='theme_system', default='Use System Theme', language_strings=language_strings) }}">
+                <i class="icon" style="--icon: var(--icon-theme-system);"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="site-sidebar-content">
+        <nav id="sidebar-nav" class="overshoot">
+            <ul>
+                {%- if lang != config.default_language -%}
+                {%- set nav_links = config.extra.nav[lang].links -%}
+                {%- else -%}
+                {%- set nav_links = config.extra.nav.links -%}
+                {%- endif -%}
+
+                <li>
+                    <a href="{{ home_url }}" {% if home_active %}aria-current="page" {% endif %}>
+                        <i class="icon" style="--icon: var(--icon-home);"></i>
+                        Home
+                    </a>
+                </li>
+                {%- for link in nav_links -%}
+                {%- if link.category and link.category | length > 0 -%}
+                <li>
+                    <details {% if not link.closed %}open{% endif %}>
+                        <summary>
+                            {{- link.name -}}
+                            <div class="line"></div>
+                        </summary>
+                        <ul>
+                            {%- for link in link.category -%}
+                            {# Link URL #}
+                            {%- set link_external = false -%}
+
+                            {%- if link.url is matching("^https?://") -%}
+                            {%- set link_url = link.url -%}
+                            {%- set link_external = true -%}
+                            {%- else -%}
+                            {%- set link_url = get_url(path=link.url, lang=lang) -%}
+                            {%- endif -%}
+
+                            {# Active link #}
+                            {%- set link_active = false -%}
+
+                            {%- if not link_external and current_url | default(value="/") | trim_end_matches(pat='/') |
+                            safe == link_url | trim_end_matches(pat='/') | safe -%}
+                            {%- set link_active = true -%}
+                            {%- endif -%}
+
+                            {{ macros_link::link(
+                            link=link,
+                            lang=lang,
+                            link_url=link_url,
+                            link_external=link_external,
+                            link_active=link_active,
+                            after_active=after_active | default(value=false)) }}
+
+                            {%- if link_active -%}
+                            {%- set_global after_active = true -%}
+                            {%- endif -%}
+                            {%- endfor -%}
+                        </ul>
+                    </details>
+                </li>
+                {%- else -%}
+                {# Link URL #}
+                {%- set link_external = false -%}
+
+                {%- if link.url is matching("^https?://") -%}
+                {%- set link_url = link.url -%}
+                {%- set link_external = true -%}
+                {%- else -%}
+                {%- set link_url = get_url(path=link.url, lang=lang) -%}
+                {%- endif -%}
+
+                {# Active link #}
+                {%- set link_active = false -%}
+
+                {%- if not link_external and current_url | default(value="/") | trim_end_matches(pat='/') | safe ==
+                link_url | trim_end_matches(pat='/') | safe -%}
+                {%- set link_active = true -%}
+                {%- endif -%}
+
+                {{ macros_link::link(
+                link=link,
+                lang=lang,
+                link_url=link_url,
+                link_external=link_external,
+                link_active=link_active,
+                after_active=after_active | default(value=false)) }}
+                {%- if link_active -%}
+                {%- set_global after_active = true -%}
+                {%- endif -%}
+                {%- endif -%}
+                {%- endfor -%}
+            </ul>
+        </nav>
+    </div>
+</div>

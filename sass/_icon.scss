@@ -1,0 +1,26 @@
+i.icon {
+	display: inline-block;
+	mask-size: cover;
+	-webkit-mask-size: cover;
+	background-color: currentColor;
+	width: 1rem;
+	height: 1rem;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 0;
+	text-rendering: auto;
+	mask-image: var(--icon);
+	-webkit-mask-image: var(--icon);
+
+	&.light {
+		--icon: var(--icon-theme-light) !important;
+	}
+
+	&.dark {
+		--icon: var(--icon-theme-dark) !important;
+	}
+
+	// &.system {
+	//     --icon: var(--icon-theme-system) !important;
+	// }
+}

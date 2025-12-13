@@ -1,0 +1,24 @@
+@mixin easing-mask($direction: right) {
+    mask-image: linear-gradient(to $direction,
+            black 0%,
+            black 10%,
+            transparent 100%);
+}
+
+@mixin gradient-fill($type: default) {
+    border: 0 solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+
+    @if $type ==hover {
+        background-image: linear-gradient(var(--bg-muted-2), var(--bg-muted-2)),
+            var(--gradient);
+        color: var(--fg-color);
+    }
+
+    @else {
+        background-image: linear-gradient(var(--bg-muted-1), var(--bg-muted-1)),
+            var(--gradient);
+        color: var(--accent-color);
+    }
+}

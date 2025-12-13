@@ -1,0 +1,9 @@
++++
+title = "Blogs"
+sort_by = "date"
+template = "article_list.html"
+page_template = "article.html"
+paginate_by = 5
++++
+
+Everything i write

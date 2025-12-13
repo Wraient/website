@@ -1,0 +1,23 @@
+body::before {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 15% 15%, var(--accent-color) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, var(--accent-color) 0%, transparent 45%);
+    opacity: 0.15;
+    filter: blur(100px) saturate(150%);
+    mix-blend-mode: screen;
+}
+
+[data-theme="dark"] body::before {
+    opacity: 0.2;
+    mix-blend-mode: screen;
+}
+
+[data-theme="light"] body::before {
+    opacity: 0.3;
+    mix-blend-mode: multiply; // Screen might be invisible on white bg
+}

@@ -1,0 +1,9 @@
+{% macro icon(name, fill=false, inline=false) %}
+
+{%- if not name -%}
+{{- throw(message="Icon name not specified.") -}}
+{%- endif -%}
+
+<i class="icon {{ name }}" style="--icon: var(--icon-{{ name }});"></i>
+
+{% endmacro icon %}

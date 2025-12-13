@@ -1,0 +1,119 @@
+{% import "macros/translate.html" as macros_translate %}
+{% import "macros/icon.html" as macros_icon %}
+<header id="site-header">
+    <ul id="site-sidebar-controls">
+        <li id="expand-sidebar-li">
+            <input class="visually-hidden" id="expand-sidebar" type="checkbox" name="expand-sidebar"
+                autocomplete="off" />
+            <label for="expand-sidebar"
+                title="{{ macros_translate::translate(key='toggle_sidebar', default='Toggle Sidebar', language_strings=language_strings) }}">
+                {{- macros_icon::icon(name="sidebar") -}}
+            </label>
+        </li>
+    </ul>
+    <span class="title">
+        {%- if current_path and current_path == "/" -%}
+        {%- set title = config.title -%}
+        {% elif title %}
+        {%- set title = title -%}
+        {% elif section.title -%}
+        {%- set title = section.title -%}
+        {% elif page.title %}
+        {%- set title = page.title -%}
+        {% elif term.name %}
+        {%- set title = term.name -%}
+        {% elif taxonomy.name %}
+        {%- set title = taxonomy.name | capitalize -%}
+        {% else %}
+        {%- set title = "404" %}
+        {%- endif -%}
+
+        {{- title -}}
+    </span>
+    <ul class="buttons">
+        {%- if config.generate_feeds or section.generate_feeds or (taxonomy.feed and term.path) -%}
+        <li id="feed">
+            <details class="closable">
+                <summary
+                    title="{{ macros_translate::translate(key='feed', default='Feed', language_strings=language_strings) }}">
+                    <i class="icon" style="--icon: var(--icon-feed);"></i>
+                </summary>
+                <ul class="dropdown">
+                    {%- for feed_filename in config.feed_filenames -%}
+                    {%- if section.generate_feeds -%}
+                    {%- set feed_filename = current_path ~ feed_filename -%}
+                    {%- endif -%}
+                    {%- if taxonomy.feed and term.path -%}
+                    {%- set feed_filename = term.path ~ feed_filename -%}
+                    {%- endif -%}
+                    <li>
+                        <a href="{{ get_url(path=feed_filename, lang=lang) }}">
+                            {%- if feed_filename is containing("atom") -%}
+                            Atom
+                            {%- elif feed_filename is containing("rss") -%}
+                            RSS
+                            {%- else -%}
+                            {{ macros_translate::translate(key="feed", default="Feed",
+                            language_strings=language_strings) }}
+                            {%- endif -%}
+                        </a>
+                    </li>
+                    {%- endfor -%}
+                </ul>
+            </details>
+        </li>
+        {%- endif %}
+        {%- if config.build_search_index -%}
+        <li>
+            <button id="search"
+                title="{{ macros_translate::translate(key='search', default='Search', language_strings=language_strings) }}">
+                <i class="icon" style="--icon: var(--icon-search);"></i>
+            </button>
+        </li>
+        {%- endif -%}
+        {%- if config.languages | length > 0 -%}
+        <li>
+            <details class="closable">
+                <summary
+                    title="{{ macros_translate::translate(key='change_language', default='Change Language', language_strings=language_strings) }}">
+                    <i class="icon" style="--icon: var(--icon-languages);"></i>
+                </summary>
+                {%- include "partials/language_switcher.html" -%}
+            </details>
+        </li>
+        {%- endif -%}
+
+        {# Added Theme Switcher support matching nav.html features #}
+        {%- if config.extra.default_theme and config.extra.nav.show_theme_switcher != false or
+        config.extra.nav.show_theme_switcher %}
+        <li id="theme-switcher">
+            <details class="closable">
+                <summary
+                    title="{{ macros_translate::translate(key='theme', default='Theme', language_strings=language_strings) }}">
+                    <i class="icon" style="--icon: var(--icon-theme-system);"></i>
+                </summary>
+                <ul>
+                    <li>
+                        <button class="circle theme-btn theme-btn-light" id="theme-light"
+                            title="{{ macros_translate::translate(key='theme_light', default='Switch to Light Theme', language_strings=language_strings) }}">
+                            <i class="icon" style="--icon: var(--icon-theme-light);"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="circle theme-btn theme-btn-dark" id="theme-dark"
+                            title="{{ macros_translate::translate(key='theme_dark', default='Switch to Dark Theme', language_strings=language_strings) }}">
+                            <i class="icon" style="--icon: var(--icon-theme-dark);"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="circle theme-btn theme-btn-system" id="theme-system"
+                            title="{{ macros_translate::translate(key='theme_system', default='Use System Theme', language_strings=language_strings) }}">
+                            <i class="icon" style="--icon: var(--icon-theme-system);"></i>
+                        </button>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        {%- endif %}
+    </ul>
+</header>
