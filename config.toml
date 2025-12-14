@@ -111,7 +111,7 @@ show_backlinks = true
 date_format = "%d %B %Y"
 date_format_long = "%d %B %Y, %R (%Z)"
 date_locale = "en_US"
-timezone = "UTC"
+timezone = "IST"
 #
 # Whether to use Content Security Policy.
 # Keep in mind that although this can potentially increase security,
