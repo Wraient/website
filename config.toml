@@ -175,6 +175,7 @@ show_repo = true
 links = [
     { url = "@/blog/_index.md", name = "Blog" },
     { url = "@/nanolog/_index.md", name = "Nanolog" },
+    { url = "@/about/_index.md", name = "About" },
     # { url = "@/archive/_index.md", name = "Archive" },
     # { url = "/tags", name = "Tags" },
     # { url = "@/connect/_index.md", name = "Social" },
