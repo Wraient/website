@@ -12,7 +12,7 @@ Welcome to my corner of the internet.
 I like computers and the way i can never be done learning.
 
 <div class="buttons centered">
-    <a class="big" href="/blog/">Start Reading →</a>
+    <a class="big" href="/website/blog/">Start Reading →</a>
 </div>
 
 </div>
