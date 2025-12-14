@@ -1,7 +1,7 @@
 +++
 title = "Creating Curd"
 description = "How i created CLI app to watch japanese animation"
-date = 2025-12-28T05:49:00+05:30
+date = 2025-12-14T05:49:00+05:30
 
 [taxonomies]
 tags = ["Developement"]
