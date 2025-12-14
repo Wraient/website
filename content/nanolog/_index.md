@@ -1,6 +1,6 @@
 +++
 title = "Nanolog"
-description = "Like microblog, but even smaller."
+description = "Like Twitter, but just me."
 template = "nanolog_list.html"
 page_template = "nanolog.html"
 sort_by = "date"
