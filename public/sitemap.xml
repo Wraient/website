@@ -1,54 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://wraient.is-a.dev/</loc>
+        <loc>https://wraient.github.io/website/</loc>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/archive/</loc>
+        <loc>https://wraient.github.io/website/archive/</loc>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/blog/</loc>
+        <loc>https://wraient.github.io/website/blog/</loc>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/blog/my-first-post/</loc>
-        <lastmod>2025-11-28</lastmod>
+        <loc>https://wraient.github.io/website/blog/creating-curd/</loc>
+        <lastmod>2025-12-28T05:49:00+05:30</lastmod>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/blog/page/1/</loc>
+        <loc>https://wraient.github.io/website/blog/page/1/</loc>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/blog/preview/</loc>
+        <loc>https://wraient.github.io/website/blog/preview/</loc>
         <lastmod>2025-11-27</lastmod>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/blog/quick-start/</loc>
+        <loc>https://wraient.github.io/website/blog/quick-start/</loc>
         <lastmod>2025-11-27</lastmod>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/connect/</loc>
+        <loc>https://wraient.github.io/website/connect/</loc>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/nanolog/</loc>
+        <loc>https://wraient.github.io/website/nanolog/</loc>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/nanolog/code-test/</loc>
-        <lastmod>2025-12-13T13:00:00+05:30</lastmod>
+        <loc>https://wraient.github.io/website/nanolog/deployed/</loc>
+        <lastmod>2025-12-14T05:42:00+05:30</lastmod>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/nanolog/hello-world/</loc>
-        <lastmod>2025-12-13T12:00:00+05:30</lastmod>
+        <loc>https://wraient.github.io/website/tags/</loc>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/nanolog/migration-complete/</loc>
-        <lastmod>2025-12-13T12:30:00+05:30</lastmod>
+        <loc>https://wraient.github.io/website/tags/developement/</loc>
     </url>
     <url>
-        <loc>https://wraient.is-a.dev/tags/</loc>
-    </url>
-    <url>
-        <loc>https://wraient.is-a.dev/tags/developement/</loc>
-    </url>
-    <url>
-        <loc>https://wraient.is-a.dev/tags/theme/</loc>
+        <loc>https://wraient.github.io/website/tags/theme/</loc>
     </url>
 </urlset>

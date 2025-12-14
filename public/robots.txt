@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://wraient.is-a.dev/sitemap.xml
+Sitemap: https://wraient.github.io/website/sitemap.xml

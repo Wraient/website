@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
     <title>Wraient - theme</title>
     <subtitle>Personal Website</subtitle>
-    <link rel="self" type="application/atom+xml" href="https://wraient.is-a.dev/tags/theme/atom.xml"/>
-    <link rel="alternate" type="text/html" href="https://wraient.is-a.dev"/>
+    <link rel="self" type="application/atom+xml" href="https://wraient.github.io/website/tags/theme/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://wraient.github.io/website"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2025-11-27T00:00:00+00:00</updated>
-    <id>https://wraient.is-a.dev/tags/theme/atom.xml</id>
+    <id>https://wraient.github.io/website/tags/theme/atom.xml</id>
     <entry xml:lang="en-US">
         <title>test1</title>
         <published>2025-11-27T00:00:00+00:00</published>
@@ -20,12 +20,12 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://wraient.is-a.dev/blog/preview/"/>
-        <id>https://wraient.is-a.dev/blog/preview/</id>
+        <link rel="alternate" type="text/html" href="https://wraient.github.io/website/blog/preview/"/>
+        <id>https://wraient.github.io/website/blog/preview/</id>
         
-        <content type="html" xml:base="https://wraient.is-a.dev/blog/preview/">&lt;h2 id=&quot;markdown&quot;&gt;Markdown&lt;&#x2F;h2&gt;
+        <content type="html" xml:base="https://wraient.github.io/website/blog/preview/">&lt;h2 id=&quot;markdown&quot;&gt;Markdown&lt;&#x2F;h2&gt;
 &lt;p&gt;Text can be &lt;strong&gt;bold&lt;&#x2F;strong&gt;, &lt;em&gt;italic&lt;&#x2F;em&gt;, &lt;del&gt;strikethrough&lt;&#x2F;del&gt;, &lt;strong&gt;&lt;del&gt;and both&lt;&#x2F;del&gt;&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;wraient.is-a.dev&#x2F;archive&#x2F;&quot;&gt;Navigate to page&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;wraient.github.io&#x2F;website&#x2F;archive&#x2F;&quot;&gt;Navigate to page&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Footnote &lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
 &lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;&#x2F;h2&gt;
@@ -508,10 +508,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://wraient.is-a.dev/blog/quick-start/"/>
-        <id>https://wraient.is-a.dev/blog/quick-start/</id>
+        <link rel="alternate" type="text/html" href="https://wraient.github.io/website/blog/quick-start/"/>
+        <id>https://wraient.github.io/website/blog/quick-start/</id>
         
-        <content type="html" xml:base="https://wraient.is-a.dev/blog/quick-start/">&lt;h2 id=&quot;download-and-install&quot;&gt;Download and Install&lt;&#x2F;h2&gt;
+        <content type="html" xml:base="https://wraient.github.io/website/blog/quick-start/">&lt;h2 id=&quot;download-and-install&quot;&gt;Download and Install&lt;&#x2F;h2&gt;
 &lt;p&gt;In your blog directory:&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;git&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; submodule init&lt;&#x2F;span&gt;
 &lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;git&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; submodule add https:&#x2F;&#x2F;github.com&#x2F;jhq223&#x2F;xuan.git themes&#x2F;xuan&lt;&#x2F;span&gt;
