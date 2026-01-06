@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
+    <title>Wraient - Nanolog</title>
+    <subtitle>Personal Website</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://wraient.is-a.dev/nanolog/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://wraient.is-a.dev/nanolog/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-12-14T05:42:00+05:30</updated>
+    <id>https://wraient.is-a.dev/nanolog/atom.xml</id>
+    <entry xml:lang="en-US">
+        <title>Finally Deployed</title>
+        <published>2025-12-14T05:42:00+05:30</published>
+        <updated>2025-12-14T05:42:00+05:30</updated>
+        
+        <author>
+          <name>
+            
+              Wraient
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://wraient.is-a.dev/nanolog/deployed/"/>
+        <id>https://wraient.is-a.dev/nanolog/deployed/</id>
+        
+        <content type="html" xml:base="https://wraient.is-a.dev/nanolog/deployed/">&lt;p&gt;Finally deployed the website to GitHub Pages, Waiting for is-a.dev approval.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
