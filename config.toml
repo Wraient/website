@@ -1,5 +1,5 @@
 title = "Wraient"
-base_url = "https://wraient.github.io/website"
+base_url = "https://wraient.is-a.dev"
 description = "Personal Website"
 
 compile_sass = true
